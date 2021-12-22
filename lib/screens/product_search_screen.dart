@@ -4,7 +4,7 @@ import 'package:search_page/search_page.dart';
 
 class ProductSearchSreen extends StatelessWidget {
   static List<Product> people = [
-    Product('name', 'surname', 7),
+    Product(productName: 'name', shopName: 'surname', price: 7),
   ];
   @override
   Widget build(BuildContext context) {
@@ -17,9 +17,9 @@ class ProductSearchSreen extends StatelessWidget {
         itemBuilder: (context, index) {
           final Product person = people[index];
           return ListTile(
-            title: Text(person.name),
-            subtitle: Text(person.surname),
-            trailing: Text('${person.age} yo'),
+            title: Text(person.productName!),
+            subtitle: Text(person.shopName!),
+            trailing: Text('${person.price} yo'),
           );
         },
       ),
@@ -35,14 +35,14 @@ class ProductSearchSreen extends StatelessWidget {
                 Center(child: Text('Filter people by name, surname or age')),
             failure: Center(child: Text('No persons found')),
             filter: (person) => [
-              person.name,
-              person.surname,
-              person.age.toString(),
+              person.productName!,
+              person.shopName!,
+              person.price.toString(),
             ],
             builder: (person) => ListTile(
-              title: Text(person.name),
-              subtitle: Text(person.surname),
-              trailing: Text('${person.age} yo'),
+              title: Text(person.productName!),
+              subtitle: Text(person.shopName!),
+              trailing: Text('${person.weight} yo'),
             ),
           ),
         ),
